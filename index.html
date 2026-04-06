@@ -11,7 +11,8 @@
             --text: #222;
             --muted: #777;
             --accent: #555;
-            --scroll-thumb: #888;
+            --bg-secondary: #e0e0e0;
+            --bg-tertiary: #888;
         }
 
         body.dark {
@@ -19,7 +20,8 @@
             --text: #f5f5f5;
             --muted: #aaa;
             --accent: #ccc;
-            --scroll-thumb: #555;
+            --bg-secondary: #222;
+            --bg-tertiary: #555;
         }
 
         html {
@@ -40,6 +42,7 @@
         /* Custom Scrollbar */
         body::-webkit-scrollbar {
             width: 8px;
+            margin-left: 15px;
         }
 
         body::-webkit-scrollbar-track {
@@ -47,7 +50,7 @@
         }
 
         body::-webkit-scrollbar-thumb {
-            background: var(--scroll-thumb);
+            background: var(--bg-tertiary);
             border-radius: 6px;
         }
 
@@ -171,7 +174,7 @@
 
         /* Code */
         code {
-            background: var(--scroll-bg);
+            background: var(--bg-secondary);
             padding: 2px 5px;
             border-radius: 3px;
             font-family: 'Courier New', monospace;
@@ -202,7 +205,7 @@
         }
 
         table th {
-            background: var(--scroll-bg);
+            background: var(--bg-secondary);
         }
 
         /* Lists */
@@ -350,8 +353,7 @@
             <!-- BLOG -->
             <section id="blog" class="content-section">
                 <div class="block" data-lang="en">
-                    <h2>April 6</h2>
-                    <p>I wrote today without thinking. It felt lighter.</p>
+                    <p>...</p>
                 </div>
                 <div class="block" data-lang="am">
                     <h2>ሚያዝያ 6</h2>
@@ -380,7 +382,7 @@
             </footer>
         </main>
         <script>
-        let currentLang = "en";
+        let currentLang = "am";
 
         function toggleMode() {
             document.body.classList.toggle("dark");
