@@ -160,16 +160,6 @@
             border-radius: 4px;
         }
 
-        /* Dialogue */
-        .dialogue p {
-            margin: 6px 0;
-        }
-
-        .speaker {
-            font-weight: 600;
-            font-family: 'Playfair Display', serif;
-        }
-
         /* Reviews */
         .review-title {
             font-style: italic;
@@ -360,14 +350,12 @@
                 <nav>
                     <span onclick="showSection('poetry')" class="active" data-en="Poetry" data-am="ግጥም"></span>
                     <span onclick="showSection('essays')" data-en="Essays" data-am="ጽሁፎች"></span>
-                    <span onclick="showSection('theatre')" data-en="Theatre" data-am="ቲያትር"></span>
-                    <span onclick="showSection('blog')" data-en="Blog" data-am="ማስታወሻ"></span>
                     <span onclick="showSection('reviews')" data-en="Reviews" data-am="ግምገማ"></span>
                     <span onclick="showSection('books')" data-en="Books" data-am="መፅሀፍት"></span>
                     <span onclick="showSection('quotes')" data-en="Quotes" data-am="አባባሎች"></span>
                 </nav>
             </header>
-            
+
             <!-- POETRY -->
             <section id="poetry" class="content-section active">
                 <div class="block" data-lang="en">
@@ -398,7 +386,7 @@
                     </p>
                 </div>
             </section>
-            
+
             <!-- ESSAYS -->
             <section id="essays" class="content-section">
                 <div class="block" data-lang="en">
@@ -450,34 +438,7 @@
                     </p>
                 </div>
             </section>
-            
-            <!-- THEATRE -->
-            <section id="theatre" class="content-section">
-                <div class="block dialogue" data-lang="en">
-                    <h2>Night Conversation</h2>
-                    <p><span class="speaker">A:</span> Do you ever feel like time is watching you?</p>
-                    <p><span class="speaker">B:</span> I think it’s the other way around.</p>
-                </div>
-                <div class="block dialogue" data-lang="am">
-                    <h2>ሌሊት ውይይት</h2>
-                    <p><span class="speaker">ሀ:</span> ጊዜ እኛን እየተመለከተ ነው ብለህ ታስባለህ?</p>
-                    <p><span class="speaker">ለ:</span> እኛ ነን የምንመለከተው።</p>
-                </div>
-            </section>
-            
-            <!-- BLOG -->
-            <section id="blog" class="content-section">
-                <div class="block" data-lang="en">
-                    <p>...</p>
-                </div>
-                <div class="block" data-lang="am">
-                    <h2>ሚያዝያ 6</h2>
-                    <p>
-                        ዛሬ ጻፍሁ፣ ሳላስብ። ቀላል ሆነ።
-                    </p>
-                </div>
-            </section>
-            
+
             <!-- REVIEWS -->
             <section id="reviews" class="content-section">
                 <div class="block" data-lang="en">
@@ -493,7 +454,7 @@
                     </p>
                 </div>
             </section>
-            
+
             <!-- BOOKS -->
             <section id="books" class="content-section">
                 <div class="books-grid">
@@ -577,7 +538,7 @@
                     </div>
                 </div>
             </section>
-            
+
             <!-- QUOTES -->
             <section id="quotes" class="content-section">
                 <div class="quotes-grid">
