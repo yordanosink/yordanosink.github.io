@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <title>Your Name — Literature</title>
-        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400&family=Noto+Sans+Ethiopic&display=swap" rel="stylesheet">
         <style>
         :root {
             --bg: #fafafa;
@@ -16,6 +16,10 @@
             --bg: #0e0e0e;
             --text: #f5f5f5;
             --muted: #aaa;
+        }
+
+        html {
+          scrollbar-gutter: stable;
         }
 
         body {
@@ -63,15 +67,25 @@
             color: var(--text);
         }
 
-        /* Toggle */
-        .toggle {
+        /* toggles */
+        .toggle,
+        .lang-toggle {
             position: fixed;
-            top: 20px;
-            right: 25px;
             cursor: pointer;
         }
 
-        /* Sections */
+        .toggle {
+            top: 20px;
+            right: 25px;
+        }
+
+        .lang-toggle {
+            top: 20px;
+            left: 25px;
+            font-size: 0.9rem;
+        }
+
+        /* sections */
         .content-section {
             display: none;
         }
@@ -80,32 +94,37 @@
             display: block;
         }
 
-        /* Content blocks */
+        /* language filtering */
         .block {
             margin-bottom: 80px;
         }
 
-        /* Titles */
+        .block[data-lang="am"] {
+            font-family: 'Noto Sans Ethiopic', sans-serif;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        /* text */
         .block h2 {
             font-family: 'Playfair Display', serif;
             font-weight: 400;
             margin-bottom: 15px;
         }
 
-        /* Text */
         .block p {
             line-height: 1.9;
             margin-bottom: 18px;
         }
 
-        /* Image */
         .block img {
             width: 100%;
             margin: 25px 0;
             border-radius: 4px;
         }
 
-        /* Dialogue */
         .dialogue p {
             margin: 6px 0;
         }
@@ -115,14 +134,11 @@
             font-family: 'Playfair Display', serif;
         }
 
-        /* Book review */
         .review-title {
             font-style: italic;
             color: var(--muted);
-            margin-bottom: 10px;
         }
 
-        /* Footer */
         footer {
             text-align: center;
             margin-top: 100px;
@@ -134,21 +150,22 @@
 
     <body>
         <div class="toggle" onclick="toggleMode()">◐</div>
+        <div class="lang-toggle" onclick="toggleLanguage()">EN | አማ</div>
         <main>
             <header>
-                <h1>Your Name</h1>
-                <p class="subtitle">literature</p>
+                <h1 id="title" data-en="Yordanos" data-am="ዮርዳኖስ">Yordanos</h1>
+                <p class="subtitle" id="subtitle" data-en="literature" data-am="ስነ-ፅሁፍ">literature</p>
                 <nav>
-                    <span onclick="showSection('poetry')" class="active">Poetry</span>
-                    <span onclick="showSection('essays')">Essays</span>
-                    <span onclick="showSection('theatre')">Theatre</span>
-                    <span onclick="showSection('blog')">Blog</span>
-                    <span onclick="showSection('reviews')">Reviews</span>
+                    <span onclick="showSection('poetry')" class="active" data-en="Poetry" data-am="ግጥም">Poetry</span>
+                    <span onclick="showSection('essays')" data-en="Essays" data-am="ጽሁፎች">Essays</span>
+                    <span onclick="showSection('theatre')" data-en="Theatre" data-am="ቲያትር">Theatre</span>
+                    <span onclick="showSection('blog')" data-en="Blog" data-am="ማስታወሻ">Blog</span>
+                    <span onclick="showSection('reviews')" data-en="Reviews" data-am="ግምገማ">Reviews</span>
                 </nav>
             </header>
             <!-- POETRY -->
             <section id="poetry" class="content-section active">
-                <div class="block">
+                <div class="block" data-lang="en">
                     <h2>Drift</h2>
                     <p>
                         The sky forgets its former blue,<br>
@@ -157,7 +174,7 @@
                         a quiet ghost of borrowed days.
                     </p>
                 </div>
-                <div class="block">
+                <div class="block" data-lang="en">
                     <h2>Stillness</h2>
                     <p>
                         Nothing moves and yet it breathes,<br>
@@ -166,85 +183,78 @@
                         becoming less and less severe.
                     </p>
                 </div>
+                <div class="block" data-lang="am">
+                    <h2>ጸጥታ</h2>
+                    <p>
+                        ምንም አይንቀሳቀስም፣ ግን ይኖራል።<br>
+                        በቀስታ የተሸፈነ ሕይወት።<br><br>
+                        ጊዜ እዚህ ይቀልሳል፣<br>
+                        እያነሰ እያነሰ ይሄዳል።
+                    </p>
+                </div>
             </section>
             <!-- ESSAYS -->
             <section id="essays" class="content-section">
-                <div class="block">
+                <div class="block" data-lang="en">
                     <h2>On Attention</h2>
-                    <img src="https://picsum.photos/800/400?grayscale" alt="">
+                    <img src="https://picsum.photos/800/400?grayscale">
                     <p>
                         Attention is the rarest form of generosity. In a world saturated with noise,
                         to truly notice something is almost radical.
                     </p>
                     <p>
-                        We scroll, we skim, we glance—but we rarely stay. And yet, meaning only reveals
-                        itself to those who linger.
-                    </p>
-                    <p>
-                        Perhaps the problem is not that life lacks depth, but that we refuse to go deep.
+                        We scroll, we skim, we glance—but we rarely stay.
                     </p>
                 </div>
-                <div class="block">
-                    <h2>The Shape of Memory</h2>
+                <div class="block" data-lang="am">
+                    <h2>ስለ ትኩረት</h2>
                     <p>
-                        Memory does not archive—it edits. It softens certain edges and sharpens others.
-                        What remains is not truth, but something more personal.
+                        ትኩረት ቀላል አይደለም። ሰዎች በፍጥነት ይኖራሉ፣
+                        ነገር ግን መቆየት ይከብዳል።
+                    </p>
+                    <p>
+                        ማየት ቀላል ነው፣ መገንዘብ ግን ይፈልጋል።
                     </p>
                 </div>
             </section>
             <!-- THEATRE -->
             <section id="theatre" class="content-section">
-                <div class="block dialogue">
+                <div class="block dialogue" data-lang="en">
                     <h2>Night Conversation</h2>
                     <p><span class="speaker">A:</span> Do you ever feel like time is watching you?</p>
                     <p><span class="speaker">B:</span> I think it’s the other way around.</p>
-                    <p><span class="speaker">A:</span> And what do we do with it?</p>
-                    <p><span class="speaker">B:</span> We pretend it’s not slipping.</p>
                 </div>
-                <div class="block dialogue">
-                    <h2>The Door</h2>
-                    <p><span class="speaker">She:</span> You never opened it.</p>
-                    <p><span class="speaker">He:</span> I was waiting.</p>
-                    <p><span class="speaker">She:</span> For what?</p>
-                    <p><span class="speaker">He:</span> For it to open itself.</p>
+                <div class="block dialogue" data-lang="am">
+                    <h2>ሌሊት ውይይት</h2>
+                    <p><span class="speaker">A:</span> ጊዜ እኛን እየተመለከተ ነው ብለህ ታስባለህ?</p>
+                    <p><span class="speaker">B:</span> እኛ ነን የምንመለከተው።</p>
                 </div>
             </section>
             <!-- BLOG -->
             <section id="blog" class="content-section">
-                <div class="block">
+                <div class="block" data-lang="en">
                     <h2>April 6</h2>
-                    <p>
-                        I wrote today without thinking about whether it was good.
-                        It felt lighter. Maybe that’s the point.
-                    </p>
+                    <p>I wrote today without thinking. It felt lighter.</p>
                 </div>
-                <div class="block">
-                    <h2>March 28</h2>
+                <div class="block" data-lang="am">
+                    <h2>ሚያዝያ 6</h2>
                     <p>
-                        I am beginning to suspect that writing is less about expression
-                        and more about excavation.
+                        ዛሬ ጻፍሁ፣ ሳላስብ። ቀላል ሆነ።
                     </p>
                 </div>
             </section>
-            <!-- BOOK REVIEWS -->
+            <!-- REVIEWS -->
             <section id="reviews" class="content-section">
-                <div class="block">
+                <div class="block" data-lang="en">
                     <h2>Fragments of Silence</h2>
                     <p class="review-title">by A. Writer</p>
-                    <p>
-                        This book does not try to impress—it lingers instead. Its strength lies in restraint,
-                        allowing the reader to meet it halfway.
-                    </p>
-                    <p>
-                        Some passages feel almost unfinished, but that incompleteness becomes part of its voice.
-                    </p>
+                    <p>This book lingers instead of impressing.</p>
                 </div>
-                <div class="block">
-                    <h2>The Weight of Light</h2>
-                    <p class="review-title">by L. Author</p>
+                <div class="block" data-lang="am">
+                    <h2>ዝምታ ክፍሎች</h2>
+                    <p class="review-title">በ አንድ ደራሲ</p>
                     <p>
-                        A reflective and often haunting collection. Not every piece lands,
-                        but when it does, it stays with you.
+                        ይህ መጽሐፍ አይጮኽም፤ በቀስታ ይቆያል።
                     </p>
                 </div>
             </section>
@@ -253,8 +263,35 @@
             </footer>
         </main>
         <script>
+        let currentLang = "en";
+
         function toggleMode() {
             document.body.classList.toggle("dark");
+        }
+
+        function toggleLanguage() {
+            currentLang = currentLang === "en" ? "am" : "en";
+            updateLanguage();
+        }
+
+        function updateLanguage() {
+            document.querySelectorAll("nav span").forEach(el => {
+                el.textContent = el.getAttribute("data-" + currentLang);
+            });
+
+            document.getElementById("title").textContent =
+                document.getElementById("title").getAttribute("data-" + currentLang);
+
+            document.getElementById("subtitle").textContent =
+                document.getElementById("subtitle").getAttribute("data-" + currentLang);
+
+            document.querySelectorAll(".block").forEach(block => {
+                if (block.dataset.lang === currentLang) {
+                    block.classList.remove("hidden");
+                } else {
+                    block.classList.add("hidden");
+                }
+            });
         }
 
         function showSection(id) {
@@ -270,6 +307,8 @@
 
             event.target.classList.add('active');
         }
+
+        updateLanguage();
         </script>
     </body>
 
