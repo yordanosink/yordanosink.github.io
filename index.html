@@ -3,8 +3,7 @@
 
     <head>
         <meta charset="UTF-8">
-        <title>Your Name — Poetry</title>
-        <!-- Fonts -->
+        <title>Your Name — Literature</title>
         <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400&display=swap" rel="stylesheet">
         <style>
         :root {
@@ -24,12 +23,12 @@
             background: var(--bg);
             color: var(--text);
             font-family: 'Inter', sans-serif;
-            transition: background 0.6s ease, color 0.6s ease;
+            transition: 0.6s;
         }
 
         /* Layout */
         main {
-            max-width: 620px;
+            max-width: 680px;
             margin: 80px auto;
             padding: 0 20px;
         }
@@ -37,7 +36,7 @@
         /* Header */
         header {
             text-align: center;
-            margin-bottom: 80px;
+            margin-bottom: 60px;
         }
 
         h1 {
@@ -52,49 +51,86 @@
             color: var(--muted);
         }
 
-        /* Toggle button */
-        .toggle {
-            position: fixed;
-            top: 20px;
-            right: 25px;
+        /* Navigation */
+        nav {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        nav span {
+            margin: 0 15px;
             cursor: pointer;
             font-size: 0.9rem;
             color: var(--muted);
         }
 
-        /* Poems */
-        .poem {
-            margin-bottom: 70px;
-            cursor: pointer;
-            transition: transform 0.4s ease, opacity 0.4s ease;
+        nav span.active {
+            color: var(--text);
         }
 
-        .poem:hover {
+        /* Toggle */
+        .toggle {
+            position: fixed;
+            top: 20px;
+            right: 25px;
+            cursor: pointer;
+            color: var(--muted);
+        }
+
+        /* Sections */
+        .content-section {
+            display: none;
+        }
+
+        .content-section.active {
+            display: block;
+        }
+
+        /* General block */
+        .block {
+            margin-bottom: 70px;
+            cursor: pointer;
+            transition: 0.4s;
+        }
+
+        .block:hover {
             transform: translateY(-4px);
         }
 
-        /* Fade effect */
-        .poem.fade {
+        .block.fade {
             opacity: 0.2;
         }
 
-        /* Focused poem */
-        .poem.active {
+        .block.active {
             transform: scale(1.02);
         }
 
-        /* Title */
-        .poem h2 {
+        /* Titles */
+        .block h2 {
             font-family: 'Playfair Display', serif;
             font-weight: 400;
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             margin-bottom: 15px;
         }
 
         /* Text */
-        .poem p {
-            line-height: 1.8;
-            font-size: 1rem;
+        .block p {
+            line-height: 1.9;
+        }
+
+        /* Essay styling */
+        .essay p {
+            margin-bottom: 20px;
+        }
+
+        /* Dialogue / Theatre */
+        .dialogue p {
+            margin: 5px 0;
+        }
+
+        .speaker {
+            font-weight: 600;
+            font-family: 'Playfair Display', serif;
         }
 
         /* Footer */
@@ -104,47 +140,67 @@
             font-size: 0.8rem;
             color: var(--muted);
         }
-
-        /* Subtle fade-in */
-        .fade-in {
-            opacity: 0;
-            animation: fadeIn 1.2s ease forwards;
-        }
-
-        @keyframes fadeIn {
-            to {
-                opacity: 1;
-            }
-        }
         </style>
     </head>
 
     <body>
         <div class="toggle" onclick="toggleMode()">◐</div>
         <main>
-            <header class="fade-in">
+            <header>
                 <h1>Your Name</h1>
-                <p class="subtitle">poetry</p>
+                <p class="subtitle">literature</p>
+                <nav>
+                    <span onclick="showSection('poetry')" class="active">Poetry</span>
+                    <span onclick="showSection('essays')">Essays</span>
+                    <span onclick="showSection('theatre')">Theatre</span>
+                    <span onclick="showSection('blog')">Blog</span>
+                </nav>
             </header>
-            <section class="poem fade-in" onclick="focusPoem(this)">
-                <h2>Untitled</h2>
-                <p>
-                    The quiet hum of evening light,<br>
-                    A whisper soft, a fading sight.<br><br>
-                    Words dissolve like drifting air,<br>
-                    Leaving only silence there.
-                </p>
+            <!-- POETRY -->
+            <section id="poetry" class="content-section active">
+                <div class="block" onclick="focusBlock(this)">
+                    <h2>Untitled</h2>
+                    <p>
+                        The quiet hum of evening light,<br>
+                        A whisper soft, a fading sight.<br><br>
+                        Words dissolve like drifting air,<br>
+                        Leaving only silence there.
+                    </p>
+                </div>
             </section>
-            <section class="poem fade-in" onclick="focusPoem(this)">
-                <h2>Another Poem</h2>
-                <p>
-                    I held a thought too fragile still,<br>
-                    It slipped beyond my quiet will.<br><br>
-                    Now echoes linger, soft and low,<br>
-                    In spaces only poems know.
-                </p>
+            <!-- ESSAYS -->
+            <section id="essays" class="content-section">
+                <div class="block essay" onclick="focusBlock(this)">
+                    <h2>On Silence</h2>
+                    <p>
+                        Silence is not the absence of sound, but the presence of something deeper.
+                    </p>
+                    <p>
+                        We often misunderstand it, filling it quickly, fearing what it might reveal.
+                        But silence, when allowed, becomes a mirror.
+                    </p>
+                </div>
             </section>
-            <footer class="fade-in">
+            <!-- THEATRE -->
+            <section id="theatre" class="content-section">
+                <div class="block dialogue" onclick="focusBlock(this)">
+                    <h2>A Small Room</h2>
+                    <p><span class="speaker">A:</span> Do you hear that?</p>
+                    <p><span class="speaker">B:</span> Hear what?</p>
+                    <p><span class="speaker">A:</span> Exactly.</p>
+                </div>
+            </section>
+            <!-- BLOG -->
+            <section id="blog" class="content-section">
+                <div class="block essay" onclick="focusBlock(this)">
+                    <h2>April 6</h2>
+                    <p>
+                        Today I realized writing is less about saying something new,
+                        and more about seeing something honestly.
+                    </p>
+                </div>
+            </section>
+            <footer>
                 <p>© 2026</p>
             </footer>
         </main>
@@ -153,15 +209,28 @@
             document.body.classList.toggle("dark");
         }
 
-        /* Focus mode interaction */
-        function focusPoem(selected) {
-            const poems = document.querySelectorAll('.poem');
+        function showSection(id) {
+            document.querySelectorAll('.content-section').forEach(sec => {
+                sec.classList.remove('active');
+            });
 
-            poems.forEach(p => {
-                if (p !== selected) {
-                    p.classList.toggle('fade');
+            document.getElementById(id).classList.add('active');
+
+            document.querySelectorAll('nav span').forEach(tab => {
+                tab.classList.remove('active');
+            });
+
+            event.target.classList.add('active');
+        }
+
+        function focusBlock(selected) {
+            const blocks = document.querySelectorAll('.block');
+
+            blocks.forEach(b => {
+                if (b !== selected) {
+                    b.classList.toggle('fade');
                 } else {
-                    p.classList.toggle('active');
+                    b.classList.toggle('active');
                 }
             });
         }
