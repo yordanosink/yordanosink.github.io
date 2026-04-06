@@ -26,14 +26,12 @@
             transition: 0.6s;
         }
 
-        /* Layout */
         main {
-            max-width: 680px;
+            max-width: 700px;
             margin: 80px auto;
             padding: 0 20px;
         }
 
-        /* Header */
         header {
             text-align: center;
             margin-bottom: 60px;
@@ -42,7 +40,6 @@
         h1 {
             font-family: 'Playfair Display', serif;
             font-size: 2.5rem;
-            margin: 0;
         }
 
         .subtitle {
@@ -51,14 +48,12 @@
             color: var(--muted);
         }
 
-        /* Navigation */
         nav {
-            text-align: center;
-            margin-top: 30px;
+            margin-top: 25px;
         }
 
         nav span {
-            margin: 0 15px;
+            margin: 0 12px;
             cursor: pointer;
             font-size: 0.9rem;
             color: var(--muted);
@@ -74,7 +69,6 @@
             top: 20px;
             right: 25px;
             cursor: pointer;
-            color: var(--muted);
         }
 
         /* Sections */
@@ -86,51 +80,46 @@
             display: block;
         }
 
-        /* General block */
+        /* Content blocks */
         .block {
-            margin-bottom: 70px;
-            cursor: pointer;
-            transition: 0.4s;
-        }
-
-        .block:hover {
-            transform: translateY(-4px);
-        }
-
-        .block.fade {
-            opacity: 0.2;
-        }
-
-        .block.active {
-            transform: scale(1.02);
+            margin-bottom: 80px;
         }
 
         /* Titles */
         .block h2 {
             font-family: 'Playfair Display', serif;
             font-weight: 400;
-            font-size: 1.3rem;
             margin-bottom: 15px;
         }
 
         /* Text */
         .block p {
             line-height: 1.9;
+            margin-bottom: 18px;
         }
 
-        /* Essay styling */
-        .essay p {
-            margin-bottom: 20px;
+        /* Image */
+        .block img {
+            width: 100%;
+            margin: 25px 0;
+            border-radius: 4px;
         }
 
-        /* Dialogue / Theatre */
+        /* Dialogue */
         .dialogue p {
-            margin: 5px 0;
+            margin: 6px 0;
         }
 
         .speaker {
             font-weight: 600;
             font-family: 'Playfair Display', serif;
+        }
+
+        /* Book review */
+        .review-title {
+            font-style: italic;
+            color: var(--muted);
+            margin-bottom: 10px;
         }
 
         /* Footer */
@@ -154,49 +143,108 @@
                     <span onclick="showSection('essays')">Essays</span>
                     <span onclick="showSection('theatre')">Theatre</span>
                     <span onclick="showSection('blog')">Blog</span>
+                    <span onclick="showSection('reviews')">Reviews</span>
                 </nav>
             </header>
             <!-- POETRY -->
             <section id="poetry" class="content-section active">
-                <div class="block" onclick="focusBlock(this)">
-                    <h2>Untitled</h2>
+                <div class="block">
+                    <h2>Drift</h2>
                     <p>
-                        The quiet hum of evening light,<br>
-                        A whisper soft, a fading sight.<br><br>
-                        Words dissolve like drifting air,<br>
-                        Leaving only silence there.
+                        The sky forgets its former blue,<br>
+                        dissolving into something new.<br><br>
+                        I walk between what fades and stays,<br>
+                        a quiet ghost of borrowed days.
+                    </p>
+                </div>
+                <div class="block">
+                    <h2>Stillness</h2>
+                    <p>
+                        Nothing moves and yet it breathes,<br>
+                        hidden under subtle leaves.<br><br>
+                        Time softens at the edges here,<br>
+                        becoming less and less severe.
                     </p>
                 </div>
             </section>
             <!-- ESSAYS -->
             <section id="essays" class="content-section">
-                <div class="block essay" onclick="focusBlock(this)">
-                    <h2>On Silence</h2>
+                <div class="block">
+                    <h2>On Attention</h2>
+                    <img src="https://picsum.photos/800/400?grayscale" alt="">
                     <p>
-                        Silence is not the absence of sound, but the presence of something deeper.
+                        Attention is the rarest form of generosity. In a world saturated with noise,
+                        to truly notice something is almost radical.
                     </p>
                     <p>
-                        We often misunderstand it, filling it quickly, fearing what it might reveal.
-                        But silence, when allowed, becomes a mirror.
+                        We scroll, we skim, we glance—but we rarely stay. And yet, meaning only reveals
+                        itself to those who linger.
+                    </p>
+                    <p>
+                        Perhaps the problem is not that life lacks depth, but that we refuse to go deep.
+                    </p>
+                </div>
+                <div class="block">
+                    <h2>The Shape of Memory</h2>
+                    <p>
+                        Memory does not archive—it edits. It softens certain edges and sharpens others.
+                        What remains is not truth, but something more personal.
                     </p>
                 </div>
             </section>
             <!-- THEATRE -->
             <section id="theatre" class="content-section">
-                <div class="block dialogue" onclick="focusBlock(this)">
-                    <h2>A Small Room</h2>
-                    <p><span class="speaker">A:</span> Do you hear that?</p>
-                    <p><span class="speaker">B:</span> Hear what?</p>
-                    <p><span class="speaker">A:</span> Exactly.</p>
+                <div class="block dialogue">
+                    <h2>Night Conversation</h2>
+                    <p><span class="speaker">A:</span> Do you ever feel like time is watching you?</p>
+                    <p><span class="speaker">B:</span> I think it’s the other way around.</p>
+                    <p><span class="speaker">A:</span> And what do we do with it?</p>
+                    <p><span class="speaker">B:</span> We pretend it’s not slipping.</p>
+                </div>
+                <div class="block dialogue">
+                    <h2>The Door</h2>
+                    <p><span class="speaker">She:</span> You never opened it.</p>
+                    <p><span class="speaker">He:</span> I was waiting.</p>
+                    <p><span class="speaker">She:</span> For what?</p>
+                    <p><span class="speaker">He:</span> For it to open itself.</p>
                 </div>
             </section>
             <!-- BLOG -->
             <section id="blog" class="content-section">
-                <div class="block essay" onclick="focusBlock(this)">
+                <div class="block">
                     <h2>April 6</h2>
                     <p>
-                        Today I realized writing is less about saying something new,
-                        and more about seeing something honestly.
+                        I wrote today without thinking about whether it was good.
+                        It felt lighter. Maybe that’s the point.
+                    </p>
+                </div>
+                <div class="block">
+                    <h2>March 28</h2>
+                    <p>
+                        I am beginning to suspect that writing is less about expression
+                        and more about excavation.
+                    </p>
+                </div>
+            </section>
+            <!-- BOOK REVIEWS -->
+            <section id="reviews" class="content-section">
+                <div class="block">
+                    <h2>Fragments of Silence</h2>
+                    <p class="review-title">by A. Writer</p>
+                    <p>
+                        This book does not try to impress—it lingers instead. Its strength lies in restraint,
+                        allowing the reader to meet it halfway.
+                    </p>
+                    <p>
+                        Some passages feel almost unfinished, but that incompleteness becomes part of its voice.
+                    </p>
+                </div>
+                <div class="block">
+                    <h2>The Weight of Light</h2>
+                    <p class="review-title">by L. Author</p>
+                    <p>
+                        A reflective and often haunting collection. Not every piece lands,
+                        but when it does, it stays with you.
                     </p>
                 </div>
             </section>
@@ -221,18 +269,6 @@
             });
 
             event.target.classList.add('active');
-        }
-
-        function focusBlock(selected) {
-            const blocks = document.querySelectorAll('.block');
-
-            blocks.forEach(b => {
-                if (b !== selected) {
-                    b.classList.toggle('fade');
-                } else {
-                    b.classList.toggle('active');
-                }
-            });
         }
         </script>
     </body>
