@@ -10,16 +10,21 @@
             --bg: #fafafa;
             --text: #222;
             --muted: #777;
+            --accent: #555;
+            --scroll-thumb: #888;
         }
 
         body.dark {
             --bg: #0e0e0e;
             --text: #f5f5f5;
             --muted: #aaa;
+            --accent: #ccc;
+            --scroll-thumb: #555;
         }
 
         html {
-          scrollbar-gutter: stable;
+            scrollbar-gutter: stable;
+            scroll-behavior: smooth;
         }
 
         body {
@@ -28,6 +33,26 @@
             color: var(--text);
             font-family: 'Inter', sans-serif;
             transition: 0.6s;
+            line-height: 1.8;
+            font-size: 16px;
+        }
+
+        /* Custom Scrollbar */
+        body::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        body::-webkit-scrollbar-track {
+            border-radius: 6px;
+        }
+
+        body::-webkit-scrollbar-thumb {
+            background: var(--scroll-thumb);
+            border-radius: 6px;
+        }
+
+        body::-webkit-scrollbar-thumb:hover {
+            background: var(--accent);
         }
 
         main {
@@ -54,6 +79,7 @@
 
         nav {
             margin-top: 25px;
+            flex-wrap: wrap;
         }
 
         nav span {
@@ -61,6 +87,7 @@
             cursor: pointer;
             font-size: 0.9rem;
             color: var(--muted);
+            white-space: nowrap;
         }
 
         nav span.active {
@@ -108,14 +135,15 @@
         }
 
         /* text */
-        .block h2 {
+        .block h2,
+        .block h3,
+        .block h4 {
             font-family: 'Playfair Display', serif;
             font-weight: 400;
             margin-bottom: 15px;
         }
 
         .block p {
-            line-height: 1.9;
             margin-bottom: 18px;
         }
 
@@ -125,6 +153,7 @@
             border-radius: 4px;
         }
 
+        /* Dialogue */
         .dialogue p {
             margin: 6px 0;
         }
@@ -134,16 +163,77 @@
             font-family: 'Playfair Display', serif;
         }
 
+        /* Reviews */
         .review-title {
             font-style: italic;
             color: var(--muted);
         }
 
+        /* Code */
+        code {
+            background: var(--scroll-bg);
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.95em;
+        }
+
+        /* Blockquotes */
+        blockquote {
+            border-left: 4px solid var(--accent);
+            padding-left: 15px;
+            color: var(--muted);
+            font-style: italic;
+            margin: 15px 0;
+        }
+
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+        }
+
+        table th,
+        table td {
+            border: 1px solid var(--accent);
+            padding: 8px 12px;
+            text-align: left;
+        }
+
+        table th {
+            background: var(--scroll-bg);
+        }
+
+        /* Lists */
+        ul,
+        ol {
+            margin: 15px 0 15px 25px;
+        }
+
+        /* Footer */
         footer {
             text-align: center;
             margin-top: 100px;
             font-size: 0.8rem;
             color: var(--muted);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            main {
+                margin: 50px auto;
+                padding: 0 15px;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            nav span {
+                margin: 6px;
+                display: inline-block;
+            }
         }
         </style>
     </head>
@@ -205,6 +295,33 @@
                     <p>
                         We scroll, we skim, we glance—but we rarely stay.
                     </p>
+                    <blockquote>
+                        “The most valuable thing you can give someone is your undivided attention.”
+                    </blockquote>
+                    <p>Inline example: <code>let x = 5;</code></p>
+                    <h3>Subsection Example</h3>
+                    <ul>
+                        <li>First point</li>
+                        <li>Second point</li>
+                    </ul>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Header 1</th>
+                                <th>Header 2</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Row 1, Col 1</td>
+                                <td>Row 1, Col 2</td>
+                            </tr>
+                            <tr>
+                                <td>Row 2, Col 1</td>
+                                <td>Row 2, Col 2</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
                 <div class="block" data-lang="am">
                     <h2>ስለ ትኩረት</h2>
