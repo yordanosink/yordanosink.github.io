@@ -13,6 +13,8 @@
             --accent: #555;
             --bg-secondary: #e0e0e0;
             --bg-tertiary: #888;
+            --link: #0066cc;
+            --border: #ddd;
         }
 
         body.dark {
@@ -22,6 +24,8 @@
             --accent: #ccc;
             --bg-secondary: #222;
             --bg-tertiary: #555;
+            --link: #8ab4f8;
+            --border: #2a2f36;
         }
 
         html {
@@ -214,11 +218,108 @@
             margin: 15px 0 15px 25px;
         }
 
+        /* Anchor  */
+        a {
+            color: var(--link);
+            text-decoration: none;
+        }
+
         /* Footer */
         footer {
             text-align: center;
             margin-top: 100px;
             font-size: 0.8rem;
+            color: var(--muted);
+        }
+
+        /* Books Section  */
+        .books-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin-top: 25px;
+        }
+
+        .book-card {
+            text-align: center;
+        }
+
+        .book-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 6px;
+            transition: transform 0.3s ease;
+        }
+
+        .book-card img:hover {
+            transform: scale(1.05);
+        }
+
+        .book-card h3 {
+            font-size: 15px;
+            margin: 10px 0 4px 0;
+            color: var(--text);
+        }
+
+        .book-card .author {
+            font-size: 13px;
+            color: var(--muted);
+            margin: 0;
+        }
+
+        .status {
+            font-size: 12px;
+            margin-top: 4px;
+            font-weight: 500;
+        }
+
+        /* reading */
+        .status.reading {
+            color: #2563eb;
+        }
+
+        /* finished */
+        .status.finished {
+            color: #16a34a;
+        }
+
+        /* want to read */
+        .status.want {
+            color: #b45309;
+        }
+
+        /* Quotes Section */
+        .quotes-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 18px;
+            margin-top: 25px;
+        }
+
+        .quote-card {
+            border-left: 3px solid var(--border);
+            padding: 16px;
+            margin: 0;
+            background: transparent;
+        }
+
+        .quote-card::before {
+            content: "“";
+            font-size: 30px;
+            color: var(--border);
+            display: block;
+            line-height: 1;
+            margin-bottom: 5px;
+        }
+
+        .quote-card p {
+            margin: 0 0 10px 0;
+            font-style: italic;
+        }
+
+        .quote-card cite {
+            font-size: 13px;
             color: var(--muted);
         }
 
@@ -237,6 +338,14 @@
                 margin: 6px;
                 display: inline-block;
             }
+
+            .books-grid {
+                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            }
+
+            .quotes-grid {
+                grid-template-columns: 1fr;
+            }
         }
         </style>
     </head>
@@ -249,11 +358,13 @@
                 <h1 id="title" data-en="Yordanos" data-am="ዮርዳኖስ">Yordanos</h1>
                 <p class="subtitle" id="subtitle" data-en="literature" data-am="ስነ-ፅሁፍ">literature</p>
                 <nav>
-                    <span onclick="showSection('poetry')" class="active" data-en="Poetry" data-am="ግጥም">Poetry</span>
-                    <span onclick="showSection('essays')" data-en="Essays" data-am="ጽሁፎች">Essays</span>
-                    <span onclick="showSection('theatre')" data-en="Theatre" data-am="ቲያትር">Theatre</span>
-                    <span onclick="showSection('blog')" data-en="Blog" data-am="ማስታወሻ">Blog</span>
-                    <span onclick="showSection('reviews')" data-en="Reviews" data-am="ግምገማ">Reviews</span>
+                    <span onclick="showSection('poetry')" class="active" data-en="Poetry" data-am="ግጥም"></span>
+                    <span onclick="showSection('essays')" data-en="Essays" data-am="ጽሁፎች"></span>
+                    <span onclick="showSection('theatre')" data-en="Theatre" data-am="ቲያትር"></span>
+                    <span onclick="showSection('blog')" data-en="Blog" data-am="ማስታወሻ"></span>
+                    <span onclick="showSection('reviews')" data-en="Reviews" data-am="ግምገማ"></span>
+                    <span onclick="showSection('books')" data-en="Books" data-am="መፅሀፍት"></span>
+                    <span onclick="showSection('quotes')" data-en="Quotes" data-am="አባባሎች"></span>
                 </nav>
             </header>
             <!-- POETRY -->
@@ -375,6 +486,118 @@
                     <p>
                         ይህ መጽሐፍ አይጮኽም፤ በቀስታ ይቆያል።
                     </p>
+                </div>
+            </section>
+            <!-- BOOKS -->
+            <section id="books" class="content-section">
+                <div class="books-grid">
+                    <div class="book-card">
+                        <img src="books/befikir-sim.webp" alt="Befikir Sim">
+                        <h3>በፍቅር ስም (Befikir Sim)</h3>
+                        <p class="author">አለማየሁ ገላጋይ (Alemayehu Gelagay)</p>
+                        <p class="status reading">Reading</p>
+                    </div>
+                    <div class="book-card">
+                        <img src="books/conversations_with_god_book_one.webp" alt="Conversations With God - Book One">
+                        <h3>Conversations With God - Book One</h3>
+                        <p class="author">Neale Donald Walsch</p>
+                        <p class="status finished">Finished</p>
+                    </div>
+                    <div class="book-card">
+                        <img src="books/oh_zendeki.webp" alt="Oh... Zendeki">
+                        <h3>ኦ... ዘንደኪ (Oh... Zendeki)</h3>
+                        <p class="author">አዘርግ (Azerg)</p>
+                        <p class="status finished">Finished</p>
+                    </div>
+                    <div class="book-card">
+                        <img src="books/ke_amen_bashager.webp" alt="ke amen bashager">
+                        <h3>ከአሜን ባሻገር (ke amen bashager)</h3>
+                        <p class="author">በውቀቱ ስዩም (Bewketu Siyum)</p>
+                        <p class="status finished">Finished</p>
+                    </div>
+                    <div class="book-card">
+                        <img src="books/sememen.webp" alt="Sememen">
+                        <h3>ሰመመን (Sememen)</h3>
+                        <p class="author">ሲሳይ ንጉሱ (Sisay Nigusu)</p>
+                        <p class="status want">Want to Read</p>
+                    </div>
+                    <div class="book-card">
+                        <img src="books/chi.webp" alt="Chi">
+                        <h3>ቺ (chi)</h3>
+                        <p class="author">አዘርግ (Azerg)</p>
+                        <p class="status finished">Finished</p>
+                    </div>
+                    <div class="book-card">
+                        <img src="books/oromay.webp" alt="Oromay">
+                        <h3>ኦሮማይ (Oromay)</h3>
+                        <p class="author">በኣሉ ግርማ (Bealu Girma)</p>
+                        <p class="status finished">Finished</p>
+                    </div>
+                    <div class="book-card">
+                        <img src="books/odin_book.webp" alt="Odin Book">
+                        <h3>Odin Book</h3>
+                        <p class="author">Karl Zylinski</p>
+                        <p class="status reading">reading</p>
+                    </div>
+                    <div class="book-card">
+                        <img src="books/eyariko999.webp" alt="Eyariko 999">
+                        <h3>ኢያሪኮ 999 (Eyariko 999)</h3>
+                        <p class="author">አዘርግ (Azerg)</p>
+                        <p class="status finished">Finished</p>
+                    </div>
+                    <div class="book-card">
+                        <img src="books/eyariko888.webp" alt="Eyariko 888">
+                        <h3>ኢያሪኮ 888 (Eyariko 888)</h3>
+                        <p class="author">አዘርግ (Azerg)</p>
+                        <p class="status finished">Finished</p>
+                    </div>
+                    <div class="book-card">
+                        <img src="books/eyariko777.webp" alt="Eyariko 777">
+                        <h3>ኢያሪኮ 777 (Eyariko 777)</h3>
+                        <p class="author">አዘርግ (Azerg)</p>
+                        <p class="status finished">Finished</p>
+                    </div>
+                    <div class="book-card">
+                        <img src="books/adamnahewan.webp" alt="Adam ena Hewan">
+                        <h3>አዳም እና ሄዋን (Adam ena Hewan)</h3>
+                        <p class="author">አዘርግ (Azerg)</p>
+                        <p class="status finished">Finished</p>
+                    </div>
+                    <div class="book-card">
+                        <img src="books/steal_like_an_artist.webp" alt="Steal Like an Artist">
+                        <h3>Steal Like an Artist</h3>
+                        <p class="author">Austin Kleon</p>
+                        <p class="status finished">Finished</p>
+                    </div>
+                </div>
+            </section>
+            <!-- QUOTES -->
+            <section id="quotes" class="content-section">
+                <div class="quotes-grid">
+                    <blockquote class="quote-card">
+                        <p>“Simplicity is the ultimate sophistication.”</p>
+                        <cite>— <a href="https://en.wikipedia.org/wiki/Leonardo_da_Vinci">Leonardo da Vinci</a></cite>
+                    </blockquote>
+                    <blockquote class="quote-card">
+                        <p>“An idiot admires complexity, a genius admires simplicity”</p>
+                        <cite>— <a href="https://en.wikipedia.org/wiki/Terry_A._Davis">Terry A. Devis</a></cite>
+                    </blockquote>
+                    <blockquote class="quote-card">
+                        <p>“Art is never finished, only abandoned.”</p>
+                        <cite>— <a href="https://en.wikipedia.org/wiki/Leonardo_da_Vinci">Leonardo da Vinci</a></cite>
+                    </blockquote>
+                    <blockquote class="quote-card">
+                        <p>“የሰው ልጅ እውቀትን የሚማረው አንድም ከፊደል ገበታ 'ሀ' አልያም ከመከራ አዝመራ 'ዋ' ብሎ ነው”</p>
+                        <cite>— <a href="https://en.wikipedia.org/wiki/Tsegaye_Gabre-Medhin">ሎሬት ፀጋዬ ገብረመድህን (Tsegaye Gabre-Medhin)</a></cite>
+                    </blockquote>
+                    <blockquote class="quote-card">
+                        <p>“It works on my machine.”</p>
+                        <cite>— Every single one of you, including me XD</cite>
+                    </blockquote>
+                    <blockquote class="quote-card">
+                        <p>“If life isn't fair for everyone, doesn't that make her fair for everyone?”</p>
+                        <cite>— Anonymous</cite>
+                    </blockquote>
                 </div>
             </section>
             <footer>
