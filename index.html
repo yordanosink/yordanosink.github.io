@@ -352,11 +352,11 @@
                 <h1 id="title" data-en="Yordanos" data-am="ዮርዳኖስ">Yordanos</h1>
                 <p class="subtitle" id="subtitle" data-en="literature" data-am="ስነ-ፅሁፍ">literature</p>
                 <nav>
-                    <span onclick="showSection('essays')" class="active" data-en="Essays" data-am="ጽሁፎች"></span>
-                    <span onclick="showSection('poetry')" data-en="Poetry" data-am="ግጥም"></span>
-                    <span onclick="showSection('reviews')" data-en="Reviews" data-am="ግምገማ"></span>
-                    <span onclick="showSection('books')" data-en="Books" data-am="መፅሀፍት"></span>
-                    <span onclick="showSection('quotes')" data-en="Quotes" data-am="ጥቅሶች"></span>
+                    <span onclick="showSection('essays')" data-id="essays" class="active" data-en="Essays" data-am="ጽሁፎች"></span>
+                    <span onclick="showSection('poetry')" data-id="poetry" data-en="Poetry" data-am="ግጥም"></span>
+                    <span onclick="showSection('reviews')" data-id="reviews" data-en="Reviews" data-am="ግምገማ"></span>
+                    <span onclick="showSection('books')" data-id="books" data-en="Books" data-am="መፅሀፍት"></span>
+                    <span onclick="showSection('quotes')" data-id="quotes" data-en="Quotes" data-am="ጥቅሶች"></span>
                 </nav>
             </header>
 
@@ -660,14 +660,22 @@
             </footer>
         </main>
         <script>
-        let currentLang = "am";
+        let currentLang = localStorage.getItem('language') || "am";
+        let currentTheme = localStorage.getItem('theme') || "light";
 
         function toggleMode() {
-            document.body.classList.toggle("dark");
+            if (document.body.classList.contains("dark")) {
+                document.body.classList.remove("dark");
+                localStorage.setItem('theme', 'light');
+            } else {
+                document.body.classList.add("dark");
+                localStorage.setItem('theme', 'dark');
+            }
         }
 
         function toggleLanguage() {
             currentLang = currentLang === "en" ? "am" : "en";
+            localStorage.setItem('language', currentLang);
             updateLanguage();
         }
 
@@ -707,6 +715,26 @@
             });
 
             event.target.classList.add('active');
+            
+            localStorage.setItem('activeSection', id);
+        }
+
+        let savedSection = localStorage.getItem('activeSection');
+        if (savedSection && document.getElementById(savedSection)) {
+            document.querySelectorAll('.content-section').forEach(sec => {
+                sec.classList.remove('active');
+            });
+            document.getElementById(savedSection).classList.add('active');
+            document.querySelectorAll('nav span').forEach(tab => {
+                tab.classList.remove('active');
+                if (tab.dataset.id === savedSection) {
+                    tab.classList.add('active');
+                }
+            });
+        }
+
+        if (currentTheme === 'dark') {
+            document.body.classList.add('dark');
         }
 
         updateLanguage();
