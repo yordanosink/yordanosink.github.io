@@ -177,11 +177,28 @@
 
         /* Blockquotes */
         blockquote {
-            border-left: 4px solid var(--accent);
-            padding-left: 15px;
+            border-left: 3px solid var(--border);
+            padding: 8px 16px;
+            margin: 16px 0;
+            background: transparent;
+        }
+
+        blockquote::before {
+            content: "“";
+            font-size: 30px;
+            color: var(--border);
+            display: block;
+            line-height: 1;
+            margin-bottom: 5px;
+        }
+
+        blockquote p {
+            margin: 0 0 10px 0;
+        }
+
+        blockquote cite {
+            font-size: 13px;
             color: var(--muted);
-            font-style: italic;
-            margin: 15px 0;
         }
 
         /* Tables */
@@ -268,17 +285,14 @@
             font-weight: 500;
         }
 
-        /* reading */
         .status.reading {
             color: #2563eb;
         }
 
-        /* finished */
         .status.finished {
             color: #16a34a;
         }
 
-        /* want to read */
         .status.want {
             color: #b45309;
         }
@@ -289,32 +303,6 @@
             grid-template-columns: repeat(2, 1fr);
             gap: 18px;
             margin-top: 25px;
-        }
-
-        .quote-card {
-            border-left: 3px solid var(--border);
-            padding: 16px;
-            margin: 0;
-            background: transparent;
-        }
-
-        .quote-card::before {
-            content: "“";
-            font-size: 30px;
-            color: var(--border);
-            display: block;
-            line-height: 1;
-            margin-bottom: 5px;
-        }
-
-        .quote-card p {
-            margin: 0 0 10px 0;
-            font-style: italic;
-        }
-
-        .quote-card cite {
-            font-size: 13px;
-            color: var(--muted);
         }
 
         /* Responsive */
@@ -392,29 +380,29 @@
                 <div class="block" data-lang="am">
                     <h2>የበዓሉ ሴቶች(ገጸ ባህርያት)</h2>
                     <blockquote>
-                        "ማንም ወንድ ሉሊትን ተራምዷት ሊሄድ አይችልም" በማለት ኩሩነቷን ያሳየችው ሉሊት ታደሰ
+                        <p>"ማንም ወንድ ሉሊትን ተራምዷት ሊሄድ አይችልም" በማለት ኩሩነቷን ያሳየችው ሉሊት ታደሰ</p>
+                        <cite>-ከአድማስ ባሻገር</cite>
                     </blockquote>
-                    <p>-ከአድማስ ባሻገር</p>
 
                     <blockquote>
-                        "ከኔ እርካታ የሚያገኝ ወንድ የለም፣ እኔ ለወንዶች ምንግዜም የውሃ ጥም ነኝ።" ብላ ለወንድ ደንታቢስነቷን ያሳወቀችው ሂሩት ጉልላት
+                        <p>"ከኔ እርካታ የሚያገኝ ወንድ የለም፣ እኔ ለወንዶች ምንግዜም የውሃ ጥም ነኝ።" ብላ ለወንድ ደንታቢስነቷን ያሳወቀችው ሂሩት ጉልላት</p>
+                        <cite>-የቀይ ኮከብ ጥሪ</cite>
                     </blockquote>                    
-                    <p>-የቀይ ኮከብ ጥሪ</p>
 
                     <blockquote>
-                        "እንዲህ እንደቀለድክብኝ አትቀርም። እኔም ተራዬን እቀልድብሃለው ....እኔ ለባብሼና አጊጬ ብወጣ ሺ ወንድ አስከትላለሁ፣ ደግሞ ላ'ዲሳባ ወንድ።" እያለች ማንነቷን ለማሳወቅ የምትጥረው ጽጌ ሀይለማርያም
+                        <p>"እንዲህ እንደቀለድክብኝ አትቀርም። እኔም ተራዬን እቀልድብሃለው ....እኔ ለባብሼና አጊጬ ብወጣ ሺ ወንድ አስከትላለሁ፣ ደግሞ ላ'ዲሳባ ወንድ።" እያለች ማንነቷን ለማሳወቅ የምትጥረው ጽጌ ሀይለማርያም</p>
+                        <cite>-ደራሲው</cite>
                     </blockquote>
-                    <p>-ደራሲው</p>
 
                     <blockquote>
-                        "ያባቴን ፍቃድ ለመፈፀም ለመስዋዕትነት እንደ በግ አልጎተትም!" በሚል መራር ቃል የቆየውን ልማድ እምትቃወመው አይናለም ተካ
+                        <p>"ያባቴን ፍቃድ ለመፈፀም ለመስዋዕትነት እንደ በግ አልጎተትም!" በሚል መራር ቃል የቆየውን ልማድ እምትቃወመው አይናለም ተካ</p>
+                        <cite>-ሀዲስ</cite>
                     </blockquote>
-                    <p>-ሀዲስ</p>
 
                     <blockquote>
-                        "ወንድ ቀንድ አስበቅላለሁ......በወንዶች መጫወት ደስ ይለኛል አባቴ ይሙት" በማለት ፍላጎቷን በግልፅ እምትናገረው ፍያሜታ ጊላይ
+                        <p>"ወንድ ቀንድ አስበቅላለሁ......በወንዶች መጫወት ደስ ይለኛል አባቴ ይሙት" በማለት ፍላጎቷን በግልፅ እምትናገረው ፍያሜታ ጊላይ</p>
+                        <cite>-ኦሮማይ</cite>
                     </blockquote>
-                    <p>-ኦሮማይ</p>
 
                     <p>…ቆፍጠን አርጎ ነው ሚፅፋቸው እንስቶቹን :)</p>
                 </div>
@@ -428,20 +416,25 @@
                     <h2>ሶስት የ<a href="https://etharchive.github.io/author.html?slug=kebede-michael" target="_blank">ከበደ ሚካኤል</a> ግጥሞች</h2>
 
                     <blockquote>
+                        <p>
                         የተማረ ሆኖ እውነቱን የማይገልጽ ፣<br>
                         ባለ ጸጋ ሆኖ ገንዘቡን የማይሰጥ፣<br>
                         ደሃ ሆኖ መስራት የማይሻ ልቡ፣<br>
                         ሶስቱም ፍሬ ቢሶች፣<br>
                         ለምንም አይረቡ።
+                        </p>
                     </blockquote>
                     <blockquote>
+                        <p>
                         አይነ የለውም አሉ የሰነፍ ልመና<br>
                         ወደ አምላክ ሲጸልይ ማታ በልቦና<br>
                         መንገዱ ሳይመታኝ ባቧራ በጭቃ<br>
                         አድርገኝ ይለዋል ላገሬ እንድበቃ<br>
                         እንጦጦ ተኝቼ ሃረር እንድነቃ
+                        </p>
                     </blockquote>
                     <blockquote>
+                        <p>
                         መርዝም መድሃኒት ነው ሲሆን በጠብታ<br>
                         እንዲሁም ለተንኮል አለው ቦታ ቦታ<br>
                         ምን ቢሰለጥኑ ቢራቀቁ በጣም<br>
@@ -452,50 +445,62 @@
                         ብልጥ ሁን እንደባብ የዋህ ሁን እንደርግብ<br>
                         ስለዚህ በብልጠት ተንኮል ስትሰሩ<br>
                         በዝቶ እንዳይገላችሁ ገርነት ጨምሩ ...
+                        </p>
+                        <cite>-ከየዕውቀት ብልጭታ የተወሰደ</cite>
                     </blockquote>
-                    <p>ከየዕውቀት ብልጭታ የተወሰደ</p>
                 </div>
 
                 <div class="block" data-lang="am">
                     <h2>ምነው ሆዴ ባባ</h2>
                     <blockquote>
+                        <p>
                         ...ስለምን ሳስለምን ሁለት ዓመት ሞላኝ<br>
                         እባክህ አምላኬ አንተ ሁነኝ ለማኝ<br>
                         ወይ እሺ አሰኝልኝ ወይ እሷን አስጠላኝ<br>
                         ወይ ግደላትና ተስካሯን አስበላኝ...
+                        </p>
+
+                        <cite>-ሙሉቀን መለሰ</cite>
                     </blockquote>
-                    <p>ሙሉቀን መለሰ</p>
                 </div>
 
                 <div class="block" data-lang="am">
                     <blockquote>
+                        <p>
                         እውነት ነው<br>
                         ተፈጥሮ ከህጎች ለስሜት ያደላል፤<br>
                         ማን ለሰማይ ብሎ ምድርን ይጥላል።<br>
                         አመነዝራለሁ አመነዝራለሁ፤<br>
-                        ከገነት ከሲኦል ሴቶችን አምናለሁ።<br>
+                        ከገነት ከሲኦል ሴቶችን አምናለሁ።
+                        </p>
+
+                        <cite>-አዶኒያስ በቀለ</cite>
                     </blockquote>
-                    <p>አዶኒያስ በቀለ</p>
                 </div>
 
                 <div class="block" data-lang="am">
                     <blockquote>
+                        <p>
                         እንደ ፀበል ፀዲቅ እንደ ድግስ ጠላ<br>
-                        እስኪ ቅመሱልኝ አይባልም ገላ<br>
-                    </blockquote>
+                        እስኪ ቅመሱልኝ አይባልም ገላ
+                        </p>
 
-                    <p>የዶርም ልጅ</p>
+                        <cite>-የዶርም ልጅ</cite>
+                    </blockquote>
                 </div>
 
                 <div class="block" data-lang="am">
                     <h2>እኔ ምን አገባኝ</h2>
                     <blockquote>
+                        <p>
                         እኔ ምን አገባኝ የምትሉት ሀረግ<br>
                         እሱ ነው ሀገሬን ያረዳት እንደበግ<br>
                         የሚል ግጥም ልፅፍ ብድግ አልኩኝና<br>
-                        ምን አገባኝ ብዬ ቁጭ አልኩ እንደገና<br>
+                        ምን አገባኝ ብዬ ቁጭ አልኩ እንደገና
+                        </p>
+
+                        <cite>-ኑረዲን ኢሳ</cite>
                     </blockquote>
-                    <p>ኑረዲን ኢሳ</p>
                 </div>
 
                 <div class="block" data-lang="am">
@@ -503,6 +508,7 @@
 
                     <h2>ሰው</h2>
                     <blockquote>
+                        <p>
                         “አዳም ተፈጠረ” ተናገሩ ቄሱ <br>
                         “ከዝንጀሮ መጣ” ቀጠለ ሳይንሱ። <br>
                         ሁሉም በየምክኒያት እየበታተነ <br>
@@ -510,20 +516,25 @@
                         አስጨንቆት ኖሮ ማን እንደነበረ <br>
                         ያሁኑ ጥያቄ የዘመኑ ራስምታት <br>
                         “ሰው” ነበርኩኝ ሳይሆን... <br>
-                        “ሰው ልሁን” ነው ልፋት። <br>
+                        “ሰው ልሁን” ነው ልፋት።
+                        </p>
+
+                        <cite>29/10/99</cite>
                     </blockquote>
-                    <p>29/10/99</p>
 
                     <h2>ተረኛ</h2>
                     <blockquote>
+                        <p>
                         ህልሙ ማርኮት ሁሌ በቶሎ ሲተኛ <br>
                         የአለም ህይወት አድርጎት ብቸኛ <br>
                         ሊያልም ተነሳ ዛሬን አንቀላፍቶ <br>
                         የህልሙን ይዞታ ግዛቱን አስፋፍቶ <br>
                         ህልሙ አየማረከው ደግሞ እየተኛ <br>
-                        እድሜውን ጨረሰ መጣበት ተረኛ። <br>
+                        እድሜውን ጨረሰ መጣበት ተረኛ።
+                        </p>
+
+                        <cite>04/03/03 ማታ 6፡30</cite>
                     </blockquote>
-                    <p>04/03/03 ማታ 6፡30</p>
                 </div>
             </section>
 
@@ -625,31 +636,31 @@
             <!-- QUOTES -->
             <section id="quotes" class="content-section">
                 <div class="quotes-grid">
-                    <blockquote class="quote-card" data-lang="am">
+                    <blockquote data-lang="am">
                         <p>ጨዋ ማለት ያልተያዘ ባለጌ ነው</p>
                         <cite>— አንድ ሰው</cite>
                     </blockquote>
-                    <blockquote class="quote-card" data-lang="en">
+                    <blockquote data-lang="en">
                         <p>Simplicity is the ultimate sophistication.</p>
                         <cite>— <a href="https://en.wikipedia.org/wiki/Leonardo_da_Vinci">Leonardo da Vinci</a></cite>
                     </blockquote>
-                    <blockquote class="quote-card" data-lang="en">
+                    <blockquote data-lang="en">
                         <p>An idiot admires complexity, a genius admires simplicity</p>
                         <cite>— <a href="https://en.wikipedia.org/wiki/Terry_A._Davis">Terry A. Devis</a></cite>
                     </blockquote>
-                    <blockquote class="quote-card" data-lang="en">
+                    <blockquote data-lang="en">
                         <p>Art is never finished, only abandoned.</p>
                         <cite>— <a href="https://en.wikipedia.org/wiki/Leonardo_da_Vinci">Leonardo da Vinci</a></cite>
                     </blockquote>
-                    <blockquote class="quote-card" data-lang="am">
+                    <blockquote data-lang="am">
                         <p>የሰው ልጅ እውቀትን የሚማረው አንድም ከፊደል ገበታ 'ሀ' አልያም ከመከራ አዝመራ 'ዋ' ብሎ ነው</p>
                         <cite>— <a href="https://en.wikipedia.org/wiki/Tsegaye_Gabre-Medhin">ሎሬት ፀጋዬ ገብረመድህን</a></cite>
                     </blockquote>
-                    <blockquote class="quote-card" data-lang="en">
+                    <blockquote data-lang="en">
                         <p>It works on my machine.</p>
                         <cite>— Every single one of you, including me XD</cite>
                     </blockquote>
-                    <blockquote class="quote-card" data-lang="en">
+                    <blockquote data-lang="en">
                         <p>If life isn't fair for everyone, doesn't that make her fair for everyone?</p>
                         <cite>— Anonymous</cite>
                     </blockquote>
@@ -692,7 +703,7 @@
 
             [
                 ...document.querySelectorAll(".block"),
-                ...document.querySelectorAll(".quote-card"),
+                ...document.querySelectorAll(".quotes-grid blockquote"),
                 ...document.querySelectorAll(".book-card")
             ].forEach(block => {
                 if (block.dataset.lang === currentLang) {
