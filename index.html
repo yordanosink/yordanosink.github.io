@@ -50,16 +50,13 @@
             width: 8px;
             margin-left: 15px;
         }
-
         body::-webkit-scrollbar-track {
             border-radius: 6px;
         }
-
         body::-webkit-scrollbar-thumb {
             background: var(--bg-tertiary);
             border-radius: 6px;
         }
-
         body::-webkit-scrollbar-thumb:hover {
             background: var(--accent);
         }
@@ -79,10 +76,100 @@
             font-family: 'Playfair Display', serif;
             font-size: 2.5rem;
         }
+        h2,
+        h3,
+        h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 400;
+            margin-bottom: 15px;
+        }
 
-        .subtitle {
+        p {
+            margin-bottom: 18px;
+        }
+
+        img {
+            width: 100%;
+            max-height: 500px;
+            object-fit: contain;
+            border-radius: 8px;
+            margin: 20px auto;
+            display: block;
+        }
+
+        figure {
+            margin: 30px 0;
+        }
+
+        figcaption {
+            font-size: 14px;
+            color: var(--meta);
+            text-align: center;
+            margin-top: 8px;
+        }
+
+        code {
+            background: var(--bg-secondary);
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.95em;
+        }
+
+        blockquote {
+            border-left: 3px solid var(--border);
+            padding: 8px 16px;
+            margin: 16px 0;
+            background: transparent;
+        }
+        blockquote::before {
+            content: "“";
+            font-size: 30px;
+            color: var(--border);
+            display: block;
+            line-height: 1;
+            margin-bottom: 5px;
+        }
+        blockquote p {
+            margin: 0 0 10px 0;
+        }
+        blockquote cite {
+            font-size: 13px;
+            color: var(--muted);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+        }
+        table th,
+        table td {
+            border: 1px solid var(--border);
+            padding: 8px 12px;
+            text-align: left;
+        }
+        table th {
+            background: var(--bg-secondary);
+        }
+
+        ul,
+        ol {
+            margin: 15px 0 15px 25px;
+        }
+
+        a {
+            color: var(--link);
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 100px;
             font-size: 0.8rem;
-            letter-spacing: 3px;
             color: var(--muted);
         }
 
@@ -90,7 +177,6 @@
             margin-top: 25px;
             flex-wrap: wrap;
         }
-
         nav span {
             margin: 0 12px;
             cursor: pointer;
@@ -98,12 +184,16 @@
             color: var(--muted);
             white-space: nowrap;
         }
-
         nav span.active {
             color: var(--text);
         }
 
-        /* toggles */
+        .subtitle {
+            font-size: 0.8rem;
+            letter-spacing: 3px;
+            color: var(--muted);
+        }
+
         .toggle,
         .lang-toggle {
             position: fixed;
@@ -114,27 +204,22 @@
             top: 20px;
             right: 25px;
         }
-
         .lang-toggle {
             top: 20px;
             left: 25px;
             font-size: 0.9rem;
         }
 
-        /* sections */
         .content-section {
             display: none;
         }
-
         .content-section.active {
             display: block;
         }
 
-        /* language filtering */
         .block {
             margin-bottom: 80px;
         }
-
         .block[data-lang="am"] {
             font-family: 'Noto Sans Ethiopic', sans-serif;
         }
@@ -143,109 +228,6 @@
             display: none;
         }
 
-        /* text */
-        .block h2,
-        .block h3,
-        .block h4 {
-            font-family: 'Playfair Display', serif;
-            font-weight: 400;
-            margin-bottom: 15px;
-        }
-
-        .block p {
-            margin-bottom: 18px;
-        }
-
-        .block img {
-            width: 100%;
-            margin: 25px 0;
-            border-radius: 4px;
-        }
-
-        /* Reviews */
-        .review-title {
-            font-style: italic;
-            color: var(--muted);
-        }
-
-        /* Code */
-        code {
-            background: var(--bg-secondary);
-            padding: 2px 5px;
-            border-radius: 3px;
-            font-family: 'Courier New', monospace;
-            font-size: 0.95em;
-        }
-
-        /* Blockquotes */
-        blockquote {
-            border-left: 3px solid var(--border);
-            padding: 8px 16px;
-            margin: 16px 0;
-            background: transparent;
-        }
-
-        blockquote::before {
-            content: "“";
-            font-size: 30px;
-            color: var(--border);
-            display: block;
-            line-height: 1;
-            margin-bottom: 5px;
-        }
-
-        blockquote p {
-            margin: 0 0 10px 0;
-        }
-
-        blockquote cite {
-            font-size: 13px;
-            color: var(--muted);
-        }
-
-        /* Tables */
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 25px 0;
-        }
-
-        table th,
-        table td {
-            border: 1px solid var(--border);
-            padding: 8px 12px;
-            text-align: left;
-        }
-
-        table th {
-            background: var(--bg-secondary);
-        }
-
-        /* Lists */
-        ul,
-        ol {
-            margin: 15px 0 15px 25px;
-        }
-
-        /* Anchor  */
-        a {
-            color: var(--link);
-            text-decoration: none;
-        }
-
-        a:hover {
-            text-decoration: underline;
-        }
-
-        /* Footer */
-        footer {
-            text-align: center;
-            margin-top: 100px;
-            font-size: 0.8rem;
-            color: var(--muted);
-        }
-
-        /* Books Section  */
         .books-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -256,7 +238,6 @@
         .book-card {
             text-align: center;
         }
-
         .book-card img {
             width: 100%;
             height: 210px;
@@ -265,17 +246,14 @@
             transition: transform 0.3s ease;
             box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
         }
-
         .book-card img:hover {
             transform: scale(1.05);
         }
-
         .book-card h3 {
             font-size: 15px;
             margin: 10px 0 4px 0;
             color: var(--text);
         }
-
         .book-card .author {
             font-size: 13px;
             color: var(--muted);
@@ -287,20 +265,16 @@
             margin-top: 4px;
             font-weight: 500;
         }
-
         .status.reading {
             color: #2563eb;
         }
-
         .status.finished {
             color: #16a34a;
         }
-
         .status.want {
             color: #b45309;
         }
 
-        /* Quotes Section */
         .quotes-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -356,7 +330,7 @@
                 <div class="block" data-lang="en">...</div>
 
                 <div class="block" data-lang="am">
-                    <h2>አንባቢ ያረገኝ</h2>
+                    <h2>አንባቢ ያረገኝ - ካታህ ኢዱሊስ</h2>
                     <p>ማንበብ... ጊዜ ሰጥተን በሞተ ዛፍ ላይ የተቀባ ቀለም ላይ ማፍጠጥ ነው። ይህ የሰለጠነ ዘመን ደግሞ ቀለም ቀያሪ መስታወት ላይ ይህን ድርጊት ማድረግ እንድንችል አድርጎናል። በህይወቴ ለንባብ አብዛኛውን ጊዜ የምሰጠው ትርጓሜ ይህ ነበር። በትምህርት ምክንያት ማንበብ ባይጠበቅበት ኖሮ ልጅ ዮርዳኖስ አንዳችም ፊደል ሚያነብ አይመስለኝም።</p>
                     <p>የደረጃ ትምህርት ቤት እያለው አንድ ሁለት ጊዜ ለማንበብ ሞክሬ አውቃለው። ከማስታውሳቸው መፅሀፎች ውስጥ፤ ያው የፈረደበት ፍቅር እስከ መቃብር፥ ክቡር ድንጋይ፥ ያልተኖረ ልጅነት፥ እንዲሁም መፅሀፍ ቅዱስንም ጀምሪያቸው ነበር። ከነዚህ ሁሉ በግድ የጨረስኩት ያልተኖረ ልጄነትን ብቻ ነበር። ለረጅም ጊዜም እሱ ነበር የመጀመሪያዬም የመጨረሻዬም።</p>
                     <p>ከፍተኛ ትምህረት (ዩኒቨርሲቲ) የገባሁ ጊዜ ይህ ተቀየረ... የአራተኛ አመት ተማሪ እያለው ነበር ቃላቶች ላይ ፍላጎት ያደረብኝ። የኔ የንባብ ጅማሬ እንደ አብዛኛው አንባቢ ሚያኮራ አይደለም። ማንበብ ያስተማረኝ ጓደኛዬ አይደለም፤ ወላጆቼም አይደሉም፤ አስተማሪዎቼም አይደሉም፤ በአጭሩ ንባብን ያሳየኝ ሌላ አንባቢ አይደለም።</p>
@@ -375,6 +349,7 @@
                         ለኔ ሻኛ ነው ያውም የግመል
                         </p>
                     </blockquote>
+                    <img src="res/imgs/khat.webp" alt="khat">
                 </div>
 
                 <div class="block" data-lang="am">
@@ -572,7 +547,7 @@
             <section id="reviews" class="content-section">
                 <div class="block" data-lang="en">
                     <h2>Florence</h2>
-                    <p class="review-title">A game by Mountain Games</p>
+                    <p class="subtitle">A game by Mountain Games</p>
 
                     <img src="res/imgs/florence.webp" alt="florence">
                     <p>In my search for good narrative games, I have found this beautifully drawing and animated story game made by Mountain Games called Florence. It explores the life of a lady called ‘Florence’. It shows her current life, ambitions and dreams, love life and her childhood.</p>
